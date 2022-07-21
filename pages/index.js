@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -25,8 +25,9 @@ export default function Home() {
               Palmese Davide Mattia
             </a>
         </p>
-        <p className={styles.code}>ciao</p>
-        <button>Generate</button>
+        
+        <p className={styles.code}>{data.name}</p>
+        
       </main>
 
       <footer className={styles.footer}>
@@ -43,4 +44,14 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://anfi.tk/greekApi/person/random`)
+  const data = await res.json()
+
+  // Pass data to the page via props
+  return { props: { data } }
 }
