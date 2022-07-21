@@ -1,5 +1,7 @@
 .container {
   padding: 0 2rem;
+  width: 100vw;
+  height: 100vh;
 }
 
 .main {
@@ -51,7 +53,7 @@
 }
 
 .description {
-  margin: 4rem 0;
+  margin: 2rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
 }
@@ -106,6 +108,14 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+}
+
+.rainbow{
+  background: linear-gradient(90deg, #F92CA8 27.1%, #40E8F9 86.59%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;  
 }
 
 @media (max-width: 600px) {
