@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-export default function Home({ data }) {
+export default function Home({ data, emoji }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -26,7 +26,7 @@ export default function Home({ data }) {
             </a>
         </p>
         
-        <p className={styles.code}>{data.name}</p>
+        <p className={styles.code}>{`${data.name} ${emoji}`}</p>
         
       </main>
 
@@ -48,10 +48,12 @@ export default function Home({ data }) {
 
 // This gets called on every request
 export async function getServerSideProps() {
+  const random = require('@sefinek/random-emoji');
+  const emoji = random.unicode();
   // Fetch data from external API
-  const res = await fetch(`https://anfi.tk/greekApi/person/random`)
-  const data = await res.json()
+  const res = await fetch(`https://anfi.tk/greekApi/person/random`);
+  const data = await res.json();
 
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: { data, emoji } }
 }
