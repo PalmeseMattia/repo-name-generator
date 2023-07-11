@@ -17,12 +17,11 @@ export default function Home({ data, emoji }) {
         </h1>
 
         <p className={styles.description}>
-          By{' '}
           <a 
             href='https://github.com/PalmeseMattia/repo-name-generator'
             target='blank'
             className={styles.rainbow}>
-              Palmese Davide Mattia
+              Github
             </a>
         </p>
         
